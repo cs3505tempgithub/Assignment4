@@ -11,7 +11,7 @@ namespace cs3505
   class warehouse
   {
   public:
-    warehouse(std::map<std::string, int> properties, date d);
+    warehouse(std::map<std::string, int> properties);
     void add_inventory(std::string uid, int quantity);
     bool remove_inventory(std::string uid, int quantity);
     int get_quantity(std::string uid);

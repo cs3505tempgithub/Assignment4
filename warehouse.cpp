@@ -15,13 +15,12 @@
 
 namespace cs3505
 {
-  warehouse::warehouse(std::map<std::string, int> properties, date d)
+ warehouse::warehouse(std::map<std::string, int> properties)
   {
     this->food_life = properties;
-    this->todays_date = d;
   }
 
- 
+   
   /*
     This method adds inventory of an item, taking the string ID of the food
     and the quantity.  It adds it to an existing deque or creates a new one
