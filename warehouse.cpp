@@ -15,7 +15,7 @@
 
 namespace cs3505
 {
-  warehouse::warehouse(std::map<int, int> properties, date d)
+  warehouse::warehouse(std::map<std::string, int> properties, date d)
   {
     this->food_life = properties;
     this->todays_date = d;
@@ -26,7 +26,7 @@ namespace cs3505
     This method adds inventory of an item, taking the string ID of the food
     and the quantity.  It adds it to an existing deque or creates a new one
    */
-  void warehouse::add_inventory(int uid, int quantity)
+  void warehouse::add_inventory(std::string uid, int quantity)
   {
     // Count returns 0 or 1 when searching for a key
     // If it doesn't exist, make a new queue of that type of food
@@ -51,7 +51,7 @@ namespace cs3505
     warehouses map of inventory and removes the requested amount from the
     deque.
    */
-  bool warehouse::remove_inventory(int uid, int requested)
+  bool warehouse::remove_inventory(std::string uid, int requested)
   {
     // Not in inventory
     if (inventory.count(uid) == 0)
@@ -90,7 +90,7 @@ namespace cs3505
    */
   void warehouse::remove_expired_food()
   {
-    for(std::map<int, std::deque<food> >::iterator it=inventory.begin(); it!=inventory.end(); it++)
+    for(std::map<std::string, std::deque<food> >::iterator it=inventory.begin(); it!=inventory.end(); it++)
       {
 	// Compare returns 0 if strings are identical and date is a string
 	while (it->second.front().exp_date.get_today_date().compare(this->todays_date.get_today_date()) == 0)
@@ -106,7 +106,7 @@ namespace cs3505
     This method takes the food ID as a paramter and traverses the inventory map.
     It counts the inventory amount of the desired food and returns the count.
    */
-  int warehouse::get_quantity(int uid)
+  int warehouse::get_quantity(std::string uid)
   {
     int result=0;
     if (inventory.count(uid) == 0)
