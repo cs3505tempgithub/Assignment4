@@ -1,0 +1,27 @@
+
+
+#include<string>
+#include "food.h"
+
+namespace cs3505 
+{
+  food::food(std::string today_date, int shelflife, int quantity)
+  { cs3505::date result(today_date);
+    this->exp_date=result;
+    this->exp_date=get_expdate(today_date, shelflife);
+    this->quantity=quantity;
+  }
+  cs3505::date food::get_expdate(std::string today_date, int shelflife)
+  {
+    int times=shelflife;
+    cs3505::date result(today_date);
+    while(times>0)
+      {
+	result.goto_tomorrow();
+	times--;
+      }
+    return result;
+  }
+
+}
+

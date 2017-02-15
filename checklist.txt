@@ -1,0 +1,17 @@
+write a date class that can move to tomorrow  //done
+write methods to process the file line by line //done
+write methods to process line word by word
+determind and implement the data structure to store warehouse //done
+determind and implement the data structure for warehouse to store inventory //done
+
+
+issues:
+ask exp date defination //done
+
+map being passed in to warehouse is not needed?
+
+
+CHANGES 02/15
+- changed get_expdate in food to private
+- style changes in warehouse and food, comments added
+
