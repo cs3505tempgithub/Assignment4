@@ -1,3 +1,9 @@
+/* 
+   This class file was created in collaboration by Linxi Li and Charles Clausen.
+   This is intended for use in Assignment04 in University of Utah
+   CS3505 Spring 2017.
+*/
+
 #include<string>
 #include "date.h"
 #include <stdlib.h>  
