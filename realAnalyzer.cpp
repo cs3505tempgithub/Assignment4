@@ -8,27 +8,40 @@
 #include<vector>
 #include <stdlib.h>  
 #include <algorithm>
+
 using namespace std;
-int main()
+
+
+int main(int argc, char *argv[])
 {
-  std::ifstream in("data1.txt");
+
+  // Check for correct number of arguments
+  if (argc !=2)
+    {
+      return 0;
+    }
+
+  // Get the file from command line and open it
+  std::string filename = argv[1];
+  std::ifstream in(argv[1]);
   std::string line;
 
+  // Initialize a start date that will be changed later
   cs3505::date startdate("01/02/2013");
-  //main
-  //foodlist<uids, name, shelf-life>;
-  //warehouse<names>
-  //data
-  //warehouse <keys-uid, foodobjects>
-  //foodobjects<expdate, quantity>
-  //
 
-  
+  // maps warehouse names to pointers to all the different warehouse objects
   map<std::string,cs3505::warehouse*>warehouses;
-  map<std::string,std::string>foodnames;//uid goes first, then name
+
+  // maps product id to the name of product
+  map<std::string,std::string>foodnames;
+
+  // maps most popular products by name to quantity
   map<std::string, int>leaderboard;
 
+  // maps unstocked items by name to quantity
   map<std::string,int>unstocks;
+
+  // 
   map<std::string,int>how_many_stocks;
   map<std::string, int> foodlifes;
 
